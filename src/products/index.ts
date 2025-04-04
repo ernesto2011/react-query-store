@@ -7,6 +7,7 @@ export type{Product} from './interfaces/product.interface'
 
 export {useProducts} from './hooks/useProducts'
 export {useProduct} from './hooks/useProduct'
+export {usePrefetchProduct} from './hooks/usePrefetchProduct'
 export { StoreLayout } from './layout/StoreLayout';
 
 

@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 interface Props{
   product: Product
   fullDescription?:boolean
+  prefetchProduct?: (id:number)=>void
 }
 
-export const ProductCard = ({product, fullDescription=false}:Props) => {
+export const ProductCard = ({product, fullDescription=false, prefetchProduct}:Props) => {
   return (
-    <Link to={`/product/${product.id}`} >
+    <Link 
+    onMouseEnter={()=> prefetchProduct && prefetchProduct(product.id)}
+    to={`/product/${product.id}`} >
     
     <Card
       className="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
