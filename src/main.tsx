@@ -6,13 +6,16 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './router/router.tsx';
 
 import './index.css';
+import { TankStackProvider } from './plugins/tankStackProvider.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <TankStackProvider>
     <NextUIProvider>
       <main className="dark text-foreground bg-background">
         <RouterProvider router={ router } />
       </main>
     </NextUIProvider>
+    </TankStackProvider>
   </React.StrictMode>,
 )
