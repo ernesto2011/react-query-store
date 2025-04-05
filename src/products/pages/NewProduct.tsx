@@ -1,4 +1,5 @@
 import { Button, Image, Input, Textarea } from "@nextui-org/react";
+import { useEffect, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
 interface FormInputs{
@@ -9,8 +10,7 @@ interface FormInputs{
       image:       string;
 }
 export const NewProduct = () => {
-
-  const {control, handleSubmit } = useForm<FormInputs>({
+  const {control, handleSubmit, watch } = useForm<FormInputs>({
     defaultValues:{
       title:"",
       price:0,
@@ -19,6 +19,7 @@ export const NewProduct = () => {
       image:""
     }
   })
+  const newImage = watch('image')
   const onSubmit:SubmitHandler<FormInputs> =(data)=>{
     console.log(data);
     
@@ -78,8 +79,6 @@ export const NewProduct = () => {
               )}
             />
             
-           
-
             <br />
             <Button type="submit" className="mt-2" color="secondary">Crear</Button>
           </div>
@@ -90,7 +89,7 @@ export const NewProduct = () => {
           }}>
 
             <Image
-              src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+              src={newImage}
             />
           </div>
           
