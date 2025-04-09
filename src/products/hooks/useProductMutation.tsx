@@ -51,6 +51,7 @@ export const useProductMutation = () => {
         queryClient.setQueryData<Product[]>(
           ['products',{ filterKey: variables.category }],
           (old) => {
+            
             if ( !old ) return [];
   
             return old.filter( cacheProduct => {
